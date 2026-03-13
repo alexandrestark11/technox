@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechnoX — O Método Technobody</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #F7F5F1;
+    --white: #1A1410;
+    --gold: #C9A84C;
+    --gold-light: #E4C97A;
+    --gold-dark: #8B6914;
+    --gray-dark: #EEEAE3;
+    --gray-mid: #D8D2C8;
+    --gray-light: #7A7268;
+    --cream: #F0ECE4;
+    --text-main: #1A1410;
+    --text-soft: #5C5449;
+    --text-muted: #9A9088;
+    --border-gold: rgba(201,168,76,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #F7F5F1;
+    color: #1A1410;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: #F7F5F1; }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* TYPOGRAPHY */
+  .display {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .display-italic {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .overline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .gold { color: var(--gold); }
+  .white { color: #1A1410; }
+
+  /* THIN DIVIDER */
+  .divider {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  .divider-h {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    width: 100%;
+  }
+
+  /* NAV */
+  nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.6), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: #1A1410;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #F7F5F1;
+    background: var(--gold);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* HERO */
+  /* HERO — CSS Grid overlay so video + text share same cell */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 'stack';
+    background: #0D0D0D;
+    color: #F7F5F1;
+    overflow: hidden;
+  }
+
+  .hero-video-bg,
+  .hero-video-overlay,
+  .hero-content {
+    grid-area: stack;
+  }
+
+  .hero-video-bg {
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.25;
+    min-height: 100vh;
+  }
+
+  .hero-video-bg vturb-smartplayer {
+    display: block;
+    width: 100% !important;
+    min-height: 100vh;
+  }
+
+  .hero-video-overlay {
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,13,13,0.4) 0%,
+      rgba(13,13,13,0.15) 30%,
+      rgba(13,13,13,0.6) 65%,
+      rgba(13,13,13,1) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 60px 100px;
+    max-width: 860px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    justify-content: center;
+  }
+
+  .hero-eyebrow .line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* TECHNOX WORDMARK */
+  .hero-wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .wordmark-techno {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 4px;
+  }
+
+  .wordmark-x {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 18vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: #F7F5F1;
+    position: relative;
+    display: inline-block;
+  }
+
+  .wordmark-x::after {
+    content: 'X';
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.3);
+    transform: translate(3px, 3px);
+    z-index: -1;
+  }
+
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    font-weight: 300;
+    color: #F7F5F1;
+    margin-bottom: 60px;
+    line-height: 1.3;
+    max-width: 850px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    opacity: 0.9;
+  }
+
+  /* Testimonials Large Image Design */
+  .testimonial-item {
+    background: #EEEAE3;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .testimonial-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .testimonial-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .testimonial-item:hover {
+    transform: translateY(-5px);
+  }
+
+
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9A9088;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+  }
+
+  .btn-ghost:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 56px;
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    justify-content: center;
+  }
+
+  .stat-item { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9A9088;
+  }
+
+  /* IMAGE PLACEHOLDER */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--gray-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+  }
+
+  .img-placeholder-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-placeholder-text {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.4);
+  }
+
+  .img-overlay-tag {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(5,5,5,0.85);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 16px 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .img-overlay-tag .tag-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .img-overlay-tag .tag-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  .hero-vertical-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  /* SECTION BASE */
+  section { position: relative; }
+
+  /* INTRO SECTION */
+  .intro {
+    padding: 0;
+    background: #111;
+    color: #F7F5F1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-left {
+    position: relative;
+  }
+
+  .intro-left::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  }
+
+  .intro-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    color: #F7F5F1;
+  }
+
+  .intro-title .gold { color: var(--gold); }
+
+  .intro-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(247,245,241,0.65);
+    line-height: 1.85;
+  }
+
+  .intro-body strong {
+    color: #F7F5F1;
+    font-weight: 500;
+  }
+
+  .intro-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .intro-pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .intro-pain-item:first-child {
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .intro-pain-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    opacity: 0.5;
+    padding-top: 4px;
+    min-width: 24px;
+  }
+
+  .intro-pain-text {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(247,245,241,0.7);
+    line-height: 1.7;
+  }
+
+  .intro-pain-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #F7F5F1;
+    margin-bottom: 4px;
+  }
+
+  .intro-highlight {
+    border-left: none;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 28px 0;
+    margin: 40px 0 0;
+    background: transparent;
+    width: 100%;
+  }
+
+  .intro-highlight p {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(247,245,241,0.7) !important;
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  /* PROBLEMA SECTION */
+  .problema {
+    padding: 70px 60px;
+    background: #EEEAE3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .problema::before {
+    content: 'X';
+    position: absolute;
+    right: -5%;
+    top: -20%;
+    font-family: 'Inter', sans-serif;
+    font-size: 40vw;
+    font-weight: 900;
+    color: rgba(201,168,76,0.02);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .problema-header {
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .problema-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 16px 0 20px;
+  }
+
+  .problema-header p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    margin-top: 48px;
+  }
+
+  .pain-item {
+    background: #EEEAE3;
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .pain-item:hover {
+    background: rgba(201,168,76,0.08);
+  }
+
+  .pain-item::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(201,168,76,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  .pain-icon {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .pain-item h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1A1410;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .pain-item p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.8;
+  }
+
+  /* METHOD / PILARES */
+  .method {
+    padding: 120px 60px;
+  }
+
+  .method-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 100px;
+  }
+
+  .method-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 20px 0 32px;
+  }
+
+  .method-header p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .pilar {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding-top: 40px;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+
+  .pilar:hover {
+    border-top-color: var(--gold);
+  }
+
+  .pilar-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+
+  .pilar-icon-area {
+    background: #EEEAE3;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .pilar-video-wrap {
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+
+  .pilar h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1A1410;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .pilar .pilar-specialty {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .pilar p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+    flex: 1;
+  }
+
+  /* STEPS / PASSOS */
+  .steps {
+    padding: 120px 60px;
+    background: #EEEAE3;
+    position: relative;
+  }
+
+  .steps-header {
+    max-width: 600px;
+    margin-bottom: 100px;
+  }
+
+  .steps-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 20px 0 24px;
+  }
+
+  .steps-header p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+  }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding: 56px 0;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .step-item:hover {
+    border-top-color: rgba(201,168,76,0.4);
+  }
+
+  .step-item:hover .step-num {
+    color: var(--gold);
+  }
+
+  .step-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    transition: color 0.4s ease;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+  }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+
+  .step-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #1A1410;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .step-content p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+  }
+
+  .step-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+  }
+
+  .step-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: #7A7268;
+    line-height: 1.6;
+  }
+
+  .step-detail-item::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0;
+  }
+
+  /* RESULTS */
+  .results {
+    padding: 120px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .results-left h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 20px 0 32px;
+  }
+
+  .results-left p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+    margin-bottom: 48px;
+  }
+
+  .results-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .metric-item {
+    padding: 28px;
+    border: 1px solid rgba(201,168,76,0.12);
+    background: rgba(201,168,76,0.02);
+    transition: border-color 0.3s ease;
+  }
+
+  .metric-item:hover {
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7A7268;
+  }
+
+  .results-right {
+    position: relative;
+  }
+
+  .results-img-area {
+    height: 600px;
+    background: #EEEAE3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .results-img-area::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: 20px;
+    left: 20px;
+    border: 1px solid rgba(201,168,76,0.1);
+    z-index: 0;
+  }
+
+  .results-img-area .inner-content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .results-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .results-badge .badge-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #F7F5F1;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .results-badge .badge-text {
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #F7F5F1;
+    text-align: center;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding: 120px 60px;
+    background: #EEEAE3;
+  }
+
+  .testimonials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+  }
+
+  .testimonials-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .testimonials-header p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #5C5449;
+    max-width: 300px;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+  }
+
+  .testimonial-item {
+    background: #EEEAE3;
+    padding: 48px 40px;
+    transition: background 0.3s ease;
+  }
+
+  .testimonial-item:hover {
+    background: rgba(201,168,76,0.1);
+  }
+
+  .testimonial-quote {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #1A1410;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .testimonial-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 6px 14px;
+    margin-bottom: 28px;
+  }
+
+  .testimonial-result span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .testimonial-avatar {
+    width: 46px;
+    height: 46px;
+    background: #D8D2C8;
+    border: 1px solid rgba(201,168,76,0.3);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .author-info .author-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #1A1410;
+  }
+
+  .author-info .author-detail {
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: #7A7268;
+    letter-spacing: 0.05em;
+  }
+
+  /* DIFFERENTIALS */
+  .differentials {
+    padding: 120px 60px;
+    position: relative;
+  }
+
+  .differentials-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .differentials-left {
+    position: sticky;
+    top: 120px;
+  }
+
+  .differentials-left h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 20px 0 32px;
+  }
+
+  .differentials-left p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  .diff-img {
+    height: 380px;
+    background: #EEEAE3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .differentials-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .diff-item {
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+  }
+
+  .diff-item:hover {
+    border-bottom-color: rgba(201,168,76,0.3);
+    padding-left: 8px;
+  }
+
+  .diff-item-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.3);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .diff-item-content h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1A1410;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .diff-item-content p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.8;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 160px 60px;
+    background: #1A1410;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section .overline {
+    margin-bottom: 24px;
+  }
+
+  .cta-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5.5vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    color: #F7F5F1;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(247,245,241,0.6);
+    line-height: 1.9;
+    max-width: 560px;
+    margin: 0 auto 56px;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-cta-main {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 22px 64px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-cta-main:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px rgba(201,168,76,0.2);
+  }
+
+  .cta-note {
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: rgba(247,245,241,0.35);
+    letter-spacing: 0.1em;
+  }
+
+  /* PLANS */
+  .plans {
+    padding: 120px 60px;
+    background: #EDE9E1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plans::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .plans-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+  }
+
+  .plans-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 20px 0 24px;
+  }
+
+  .plans-header p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.9;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    background: transparent;
+    position: relative;
+  }
+
+  .plan-card {
+    background: #F7F5F1;
+    padding: 48px 40px 52px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(201,168,76,0.25);
+    box-shadow: 0 2px 20px rgba(26,20,16,0.06);
+  }
+
+  .plan-card:hover {
+    background: #FFFDF8;
+    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 8px 40px rgba(26,20,16,0.1);
+    transform: translateY(-3px);
+  }
+
+  .plan-card.featured {
+    background: var(--gold);
+    border-color: var(--gold-dark);
+    box-shadow: 0 8px 48px rgba(201,168,76,0.35);
+  }
+
+  .plan-card.featured:hover {
+    background: var(--gold-light);
+    box-shadow: 0 16px 64px rgba(201,168,76,0.45);
+    transform: translateY(-4px);
+  }
+
+  .plan-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: #F7F5F1;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 24px;
+    align-self: flex-start;
+  }
+
+  .plan-badge.hidden {
+    visibility: hidden;
+  }
+
+  .plan-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #1A1410;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+
+  .plan-tagline {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #7A7268;
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+
+  .plan-divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+    margin-bottom: 32px;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    margin-bottom: 40px;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.5;
+    justify-content: space-between;
+  }
+
+  .plan-features li .feat-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .plan-features li .feat-icon {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .plan-features li .feat-icon svg {
+    display: block;
+  }
+
+  .plan-features li.highlight-feat {
+    color: #1A1410;
+    font-weight: 400;
+  }
+
+  .plan-features li.highlight-feat .feat-icon {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .plan-cta {
+    display: block;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold-dark);
+  }
+
+  .plan-cta:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  .plan-card.featured .plan-cta {
+    background: var(--gold);
+    color: #F7F5F1;
+    border-color: var(--gold);
+  }
+
+  .plan-card.featured .plan-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.25);
+  }
+
+  /* Featured card (Performance) — fundo dourado, letras BRANCAS */
+  .plan-card.featured .plan-name { color: #fff; }
+  .plan-card.featured .plan-tagline { color: rgba(255,255,255,0.7); }
+  .plan-card.featured .plan-divider { background: rgba(255,255,255,0.25); }
+  .plan-card.featured .plan-features li { color: rgba(255,255,255,0.8); }
+  .plan-card.featured .plan-features li.highlight-feat { color: #fff; font-weight: 500; }
+  .plan-card.featured .plan-features li.highlight-feat .feat-icon { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); }
+  .plan-card.featured .plan-features li .feat-icon { border-color: rgba(255,255,255,0.35); }
+  .plan-card.featured .value-label { color: rgba(255,255,255,0.55); }
+  .plan-card.featured .value-total { color: rgba(255,255,255,0.55); }
+  .plan-card.featured .plan-value-summary { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+  .plan-card.featured .plan-value-divider { background: rgba(255,255,255,0.2); }
+  .plan-card.featured .price-times { color: rgba(255,255,255,0.6); }
+  .plan-card.featured .price-big { color: #fff; }
+  .plan-card.featured .price-cash-line { color: rgba(255,255,255,0.6); }
+  .plan-card.featured .plan-cta { background: #fff; color: #1A1410; border-color: #fff; font-weight: 700; }
+  .plan-card.featured .plan-cta:hover { background: rgba(255,255,255,0.88); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+  .plan-card.featured .plan-badge { background: #1A1410; color: var(--gold); }
+
+  /* Elite card — fundo PRETO, letras BRANCAS */
+  .plan-card.elite {
+    background: #1A1410;
+    border-color: rgba(201,168,76,0.4);
+    box-shadow: 0 8px 40px rgba(26,20,16,0.2);
+  }
+  .plan-card.elite:hover {
+    background: #231c14;
+    border-color: var(--gold);
+    box-shadow: 0 12px 50px rgba(26,20,16,0.3);
+    transform: translateY(-3px);
+  }
+  .plan-card.elite .plan-name { color: #F5F3EF; }
+  .plan-card.elite .plan-tagline { color: rgba(245,243,239,0.55); }
+  .plan-card.elite .plan-divider { background: rgba(201,168,76,0.2); }
+  .plan-card.elite .plan-features li { color: rgba(245,243,239,0.75); }
+  .plan-card.elite .plan-features li .feat-icon { border-color: rgba(201,168,76,0.35); }
+  .plan-card.elite .value-label { color: rgba(245,243,239,0.45); }
+  .plan-card.elite .value-total { color: rgba(245,243,239,0.45); }
+  .plan-card.elite .plan-value-summary { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.18); }
+  .plan-card.elite .plan-value-divider { background: rgba(201,168,76,0.18); }
+  .plan-card.elite .price-times { color: rgba(245,243,239,0.5); }
+  .plan-card.elite .price-big { color: #F5F3EF; }
+  .plan-card.elite .price-cash-line { color: rgba(245,243,239,0.5); }
+  .plan-card.elite .plan-cta { border-color: var(--gold); color: var(--gold); }
+  .plan-card.elite .plan-cta:hover { background: rgba(201,168,76,0.12); border-color: var(--gold-light); }
+  .plan-card.elite .plan-elite-extras { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.2); }
+  .plan-card.elite .extra-item { color: #F5F3EF; }
+
+  .plan-features li .feat-original {
+    margin-left: auto;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #9A9088;
+    text-decoration: line-through;
+    text-decoration-color: rgba(201,168,76,0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .plan-elite-extras {
+    margin-top: 16px;
+    padding: 20px 24px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .plan-elite-extras .extra-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .plan-elite-extras .extra-item {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .plan-elite-extras .extra-item::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.5rem;
+  }
+
+  .plan-value-summary {
+    margin-bottom: 28px;
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 20px 24px;
+  }
+
+  .plan-value-would-pay {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .value-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9A9088;
+  }
+
+  .value-total {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #9A9088;
+    text-decoration: line-through;
+    text-decoration-color: rgba(201,168,76,0.35);
+  }
+
+  .plan-value-divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+    margin-bottom: 16px;
+  }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .price-times {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #7A7268;
+  }
+
+  .price-big {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1A1410;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .price-cash-line {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #7A7268;
+    letter-spacing: 0.02em;
+  }
+
+  .plan-card.featured .plan-value-summary {
+    border-color: rgba(201,168,76,0.2);
+    background: rgba(201,168,76,0.06);
+  }
+
+  .plan-pricing {
+    margin-bottom: 32px;
+  }
+
+  .plan-price-installment {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .plan-price-installment .currency {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #1A1410;
+  }
+
+  .plan-price-installment .amount {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #1A1410;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .plan-price-installment .period {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #7A7268;
+    margin-left: 2px;
+  }
+
+  .plan-price-cash {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .plan-price-cash .cash-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 3px 8px;
+  }
+
+  .plan-price-cash .cash-value {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #7A7268;
+  }
+
+  .plan-price-cash .cash-economy {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F7F5F1;
+  }
+
+  .footer-logo img { height: 38px; width: auto; }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #7A7268;
+  }
+
+  .footer-copy {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #9A9088;
+  }
+
+  /* GOLD LINE DECORATION */
+  .gold-line-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 0 20px;
+  }
+
+  .gold-line-center .line-h {
+    height: 1px;
+    width: 60px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .gold-line-center .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { transform: scaleX(0); transform-origin: left; }
+    to { transform: scaleX(1); transform-origin: left; }
+  }
+
+  .hero-content > * {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-eyebrow { animation-delay: 0.2s !important; }
+  .hero-title { animation-delay: 0.4s !important; }
+  .hero-subtitle { animation-delay: 0.55s !important; }
+  .hero-body { animation-delay: 0.7s !important; }
+  .hero-actions { animation-delay: 0.85s !important; }
+  .hero-stats { animation-delay: 1s !important; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 20px 30px; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero { padding: 120px 30px 80px; }
+    .hero-stats { gap: 32px; }
+
+    .intro { padding: 70px 30px; }
+
+    .problema { padding: 80px 30px; }
+    .pain-grid { grid-template-columns: 1fr 1fr; }
+
+    .plans { padding: 80px 30px; }
+    .plans-grid { grid-template-columns: 1fr; }
+
+    .method { padding: 80px 30px; }
+    .pilares-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .steps { padding: 80px 30px; }
+    .step-item { grid-template-columns: 60px 1fr; gap: 24px; }
+    .step-detail { display: none; }
+
+    .results { padding: 80px 30px; }
+    .results-inner { grid-template-columns: 1fr; gap: 60px; }
+
+    .testimonials { padding: 80px 30px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .testimonials-header p { text-align: left; }
+
+    .differentials { padding: 80px 30px; }
+    .differentials-inner { grid-template-columns: 1fr; gap: 60px; }
+    .differentials-left { position: static; }
+
+    .cta-section { padding: 100px 30px; }
+
+    footer {
+      padding: 40px 30px;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 80px 20px 60px; }
+    .hero-wordmark img { height: 50px !important; }
+    .hero-subtitle { font-size: 1.4rem !important; line-height: 1.3; margin-bottom: 40px; }
+    
+    .hero-stats { 
+      flex-direction: column !important; 
+      gap: 40px !important; 
+      padding-top: 40px;
+      margin-top: 60px;
+    }
+    
+    .stat-item { 
+      width: 100%;
+      text-align: center;
+    }
+    
+    .stat-label { 
+      max-width: 200px;
+      line-height: 1.5;
+    }
+
+    .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+    .intro-title { font-size: 2.2rem; }
+    
+    .results-metrics { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .results-img-area { height: 350px; }
+    
+    .testimonial-img { height: 280px; }
+    
+    .cta-section h2 { font-size: 2rem; }
+  }
+
+  /* HOVER GOLD GLOW LINES */
+  .btn-primary:hover { box-shadow: 0 10px 40px rgba(201,168,76,0.15); }
+</style>
+</head>
+<body>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-video-bg">
+    <vturb-smartplayer id="vid-69b37082466251994767c4d6" style="display:block;width:100%;height:100%;"></vturb-smartplayer>
+    <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b37082466251994767c4d6/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+  </div>
+  <div class="hero-video-overlay"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-wordmark" style="margin-bottom: 36px;">
+      <img src="2.png" alt="TechnoX" style="height: 100px; width: auto; filter: invert(1) brightness(2);">
+    </div>
+
+    <p class="hero-subtitle">
+      A máxima evolução do seu corpo através de um método já validado.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#intro" class="btn-primary"><span>Conhecer o método</span></a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">-10kg</span>
+        <span class="stat-label">de gordura em média, 12 semanas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">97%</span>
+        <span class="stat-label">dos pacientes atingem a meta</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6 em 1</span>
+        <span class="stat-label">especialidades integradas no mesmo protocolo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <div class="intro-inner">
+    <div class="intro-left">
+      <h2 class="intro-title">
+        Por que nada<br>
+        funcionou<br>
+        <span class="gold">até hoje?</span>
+      </h2>
+      <p class="intro-body">
+        Você tentou. Cortou carboidrato. Treinou. Tomou suplemento.<br><br>
+        E o corpo não mudou o suficiente.<br><br>
+        <strong>Não é falta de esforço. É falta de integração.</strong>
+      </p>
+    </div>
+    <div class="intro-right">
+      <div class="intro-pain-item">
+        <span class="intro-pain-num">01</span>
+        <div class="intro-pain-text">
+          <strong>Dieta isolada não sustenta</strong>
+          Sem ajuste hormonal e metabólico, o corpo resiste à perda de gordura independente do que você come.
+        </div>
+      </div>
+      <div class="intro-pain-item">
+        <span class="intro-pain-num">02</span>
+        <div class="intro-pain-text">
+          <strong>Treino sem prescrição é desgaste</strong>
+          Exercício genérico sem protocolo individualizado consome músculo e não elimina gordura visceral.
+        </div>
+      </div>
+      <div class="intro-pain-item">
+        <span class="intro-pain-num">03</span>
+        <div class="intro-pain-text">
+          <strong>Sem dados, sem direção</strong>
+          Sem bioimpedância e exames periódicos, você está no escuro — ajustando sem saber o que está errado.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- METHOD -->
+<section class="method" id="metodo">
+  <div class="method-header">
+    <span class="overline">A solução integrada</span>
+    <h2>
+      Os 6 Pilares<br>
+      <span class="gold" style="font-style:italic;font-weight:300;">do TechnoX</span>
+    </h2>
+    <p>
+      Seis especialidades convergindo em um único protocolo. Cada pilar potencializa o outro — porque transformação corporal real é um fenômeno multidimensional.
+    </p>
+  </div>
+
+  <div class="pilares-grid">
+
+    <div class="pilar">
+      <div class="pilar-num">01</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bc2a10d9a398abb4ee7" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bc2a10d9a398abb4ee7/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Medicina Nutrológica</h3>
+      <div class="pilar-specialty">Diagnóstico & Prescrição</div>
+      <p>O ponto de partida. O médico nutrólogo investiga sua bioquímica, perfil hormonal e metabolismo para prescrever o protocolo base. Sem achismo — com exames e ciência.</p>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">02</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bd6faf9397e2331bec7" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bd6faf9397e2331bec7/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Nutrição Clínica</h3>
+      <div class="pilar-specialty">Estratégia Alimentar</div>
+      <p>Plano alimentar individual, calibrado em cima dos dados médicos. Não é cardápio genérico — é estratégia nutricional criada para o seu corpo, seu ritmo e seu objetivo.</p>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">03</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bccee2947d3ff2bfa1c" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bccee2947d3ff2bfa1c/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Treinamento Prescrito</h3>
+      <div class="pilar-specialty">Performance & Composição</div>
+      <p>Treino periodizado com base na sua composição corporal real. Foco em emagrecimento com preservação muscular — ou hipertrofia orientada para quem quer ganhar massa com qualidade.</p>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">04</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bc6005f4e6dada97482" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bc6005f4e6dada97482/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Soroterapia</h3>
+      <div class="pilar-specialty">Reposição Intravenosa</div>
+      <p>Vitaminas, minerais e aminoácidos essenciais diretamente na corrente sanguínea. Absorção de 100%. O que suplemento oral nunca vai conseguir — reposição celular de verdade.</p>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">05</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bd1a10d9a398abb4f18" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bd1a10d9a398abb4f18/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Consulta de Enfermagem</h3>
+      <div class="pilar-specialty">Monitoramento Clínico</div>
+      <p>Acompanhamento clínico contínuo entre as consultas médicas. Sinais vitais, aderência ao protocolo, ajustes de rotina. O elo entre você e o time de saúde.</p>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">06</div>
+      <div class="pilar-icon-area">
+        <div class="pilar-video-wrap">
+          <vturb-smartplayer id="vid-69b36bdb243e791f072a163f" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bdb243e791f072a163f/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
+        </div>
+      </div>
+      <h3>Bioimpedância Avançada</h3>
+      <div class="pilar-specialty">Dados & Rastreamento</div>
+      <p>Análise de composição corporal precisa: gordura visceral, massa muscular segmentada, hidratação e taxa metabólica. Os dados que guiam cada decisão do protocolo.</p>
+    </div>
+
+  </div>
+
+  <div class="gold-line-center">
+    <div class="line-h"></div>
+    <div class="diamond"></div>
+    <div class="line-h"></div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps" id="passos">
+  <div class="steps-header">
+    <span class="overline">Como funciona</span>
+    <h2>
+      Seu protocolo,<br>
+      passo a <span class="gold">passo</span>
+    </h2>
+    <p>
+      Do diagnóstico ao resultado. Cada etapa do TechnoX foi desenhada para maximizar sua transformação com segurança e precisão científica.
+    </p>
+  </div>
+
+  <div class="steps-list">
+
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-tag">Diagnóstico</div>
+        <h3>Avaliação Completa do Seu Corpo</h3>
+        <p>Tudo começa com dados. Bioimpedância avançada, exames laboratoriais completos e anamnese detalhada com nosso médico nutrólogo. Aqui mapeamos exatamente onde você está — sem suposições.</p>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-item">Análise de composição corporal segmentada</div>
+        <div class="step-detail-item">Perfil hormonal e metabólico completo</div>
+        <div class="step-detail-item">Avaliação de deficiências nutricionais</div>
+        <div class="step-detail-item">Histórico de saúde e objetivos</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-tag">Prescrição</div>
+        <h3>Seu Protocolo Personalizado</h3>
+        <p>Com base nos dados, o time TechnoX — médico, nutricionista e personal — monta seu protocolo integrado. Uma estratégia única, criada especificamente para o seu metabolismo e seus objetivos.</p>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-item">Plano alimentar individualizado</div>
+        <div class="step-detail-item">Periodização de treino personalizada</div>
+        <div class="step-detail-item">Protocolo de soroterapia prescrito</div>
+        <div class="step-detail-item">Suplementação baseada em exames</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-tag">Execução</div>
+        <h3>Protocolo em Ação</h3>
+        <p>Você não está sozinho. O método se aplica com sessões de soroterapia, treinos acompanhados e consultas de enfermagem que garantem que cada etapa está sendo executada com precisão.</p>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-item">Sessões de soroterapia programadas</div>
+        <div class="step-detail-item">Treinos supervisionados na Technobody</div>
+        <div class="step-detail-item">Check-ins de enfermagem regulares</div>
+        <div class="step-detail-item">Ajustes contínuos no plano alimentar</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-tag">Monitoramento</div>
+        <h3>Dados em Tempo Real</h3>
+        <p>Reavaliações periódicas de bioimpedância e marcadores clínicos garantem que o protocolo está funcionando. Se o corpo muda, o protocolo muda junto. Aqui nada é estático.</p>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-item">Bioimpedância de acompanhamento quinzenal</div>
+        <div class="step-detail-item">Revisão médica periódica</div>
+        <div class="step-detail-item">Ajuste de metas conforme evolução</div>
+        <div class="step-detail-item">Relatório de progresso documentado</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-tag">Resultado</div>
+        <h3>Transformação Documentada</h3>
+        <p>O resultado do TechnoX não é subjetivo. É medido, documentado e comparado com o ponto de partida. Você vê exatamente quanto perdeu de gordura, quanto ganhou de músculo e como seus marcadores de saúde evoluíram.</p>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-item">Comparativo de composição corporal</div>
+        <div class="step-detail-item">Evolução de marcadores laboratoriais</div>
+        <div class="step-detail-item">Relatório final de transformação</div>
+        <div class="step-detail-item">Protocolo de manutenção</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner">
+    <div class="results-left">
+      <span class="overline">Resultados reais</span>
+      <h2>
+        Números que <span class="gold">falam</span><br>
+        por si
+      </h2>
+      <p>
+        O TechnoX não promete milagres. Entrega dados. Cada paciente acompanhado pelo método documenta sua evolução com precisão científica — sem filtro, sem trucagem.
+      </p>
+
+      <div class="results-metrics">
+        <div class="metric-item">
+          <div class="metric-value">-10kg</div>
+          <div class="metric-label">Média de gordura perdida em 12 semanas</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">+3kg</div>
+          <div class="metric-label">Ganho médio de massa magra preservada</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">97%</div>
+          <div class="metric-label">De pacientes atingiram meta principal</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">12sem</div>
+          <div class="metric-label">Para resultados visíveis e mensuráveis</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-right">
+      <div class="results-img-area">
+        <img src="Design sem nome (4).png" alt="Resultados TechnoX" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="results-badge">
+          <div class="badge-num">100%</div>
+          <div class="badge-text">resultado<br>documentado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-h"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <span class="overline">Quem viveu o método</span>
+      <h2>
+        Histórias reais<br>
+        <span class="gold" style="font-style:italic;font-weight:300;">de transformação</span>
+      </h2>
+    </div>
+    <p>Cada história é única. O protocolo é personalizado. O resultado é documentado.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-item">
+      <img src="marg.png" alt="Carla M." class="testimonial-img">
+      <div class="testimonial-content">
+        <div class="testimonial-result">
+          <span>↓ 11kg de gordura em 14 semanas</span>
+        </div>
+        <div class="testimonial-quote">
+          "Pela primeira vez alguém olhou para o meu corpo como um sistema inteiro. Não fiz mais dieta — fiz o TechnoX."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">Carla M.</div>
+            <div class="author-detail">38 anos · Executiva</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-item">
+      <img src="rom.png" alt="Rafael S." class="testimonial-img">
+      <div class="testimonial-content">
+        <div class="testimonial-result">
+          <span>↑ +4.2kg massa magra · ↓ -7% gordura</span>
+        </div>
+        <div class="testimonial-quote">
+          "Sempre treinei, mas nunca entendi meu corpo. As bioimpedâncias mudaram minha relação com o treino."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">Rafael S.</div>
+            <div class="author-detail">42 anos · Empresário</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-item">
+      <img src="hom.png" alt="Ana P." class="testimonial-img">
+      <div class="testimonial-content">
+        <div class="testimonial-result">
+          <span>↓ 9.5kg · Disposição transformada</span>
+        </div>
+        <div class="testimonial-quote">
+          "A soroterapia mudou tudo. Com o protocolo completo, todas as peças se encaixaram perfeitamente."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">Ana P.</div>
+            <div class="author-detail">45 anos · Professora</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PLANS -->
+<section class="plans" id="planos">
+  <div class="plans-header">
+    <span class="overline">Escolha seu caminho</span>
+    <h2>
+      Planos <span class="gold">TechnoX</span>
+    </h2>
+    <p>
+      Cada plano foi desenhado para um momento diferente da sua jornada. Do primeiro passo à transformação total — o método integrado Technobody em diferentes níveis de imersão.
+    </p>
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- START -->
+    <div class="plan-card">
+      <div class="plan-badge hidden">—</div>
+      <div class="plan-name">Start</div>
+      <div class="plan-tagline">A base para começar do jeito certo</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Academia — acesso por 6 meses
+          </span>
+          <span class="feat-original">R$ 759,00</span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consulta com nutricionista — 1x
+          </span>
+          <span class="feat-original">R$ 500,00</span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consulta de enfermagem — 1x
+          </span>
+          <span class="feat-original">R$ 750,00</span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consultoria de treinamento
+          </span>
+          <span class="feat-original">R$ 1.500,00</span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Exames laboratoriais inclusos
+          </span>
+          <span class="feat-original">R$ 800,00</span>
+        </li>
+      </ul>
+
+      <div class="plan-value-summary">
+        <div class="plan-value-would-pay">
+          <span class="value-label">Você pagaria</span>
+          <span class="value-total">R$ 4.309,00</span>
+        </div>
+        <div class="plan-value-divider"></div>
+        <div class="plan-price-main">
+          <div class="plan-price-row">
+            <span class="price-times">3×</span>
+            <span class="price-big">R$ 1.000</span>
+          </div>
+          <div class="price-cash-line">ou R$ 3.000 à vista</div>
+        </div>
+      </div>
+
+      <a href="#cta" class="plan-cta">Começar agora</a>
+    </div>
+
+    <!-- PERFORMANCE -->
+    <div class="plan-card featured">
+      <div class="plan-badge">Mais escolhido</div>
+      <div class="plan-name">Performance</div>
+      <div class="plan-tagline">Protocolo completo para resultados acelerados</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Academia — acesso por 6 meses
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Nutricionista — 2 consultas
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Enfermagem — 2 consultas
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Avaliação física com personal — 2x
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consultoria de treinamento
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consulta médica — 1x
+          </span>
+        </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Exames laboratoriais inclusos
+          </span>
+        </li>
+      </ul>
+
+      <div class="plan-value-summary">
+        <div class="plan-value-would-pay">
+          <span class="value-label">Você pagaria</span>
+          <span class="value-total">R$ 9.558,00</span>
+        </div>
+        <div class="plan-value-divider"></div>
+        <div class="plan-price-main">
+          <div class="plan-price-row">
+            <span class="price-times">3×</span>
+            <span class="price-big">R$ 2.000</span>
+          </div>
+          <div class="price-cash-line">ou R$ 6.000 à vista</div>
+        </div>
+      </div>
+
+      <a href="#cta" class="plan-cta">Quero este plano</a>
+    </div>
+
+    <!-- ELITE -->
+    <div class="plan-card elite">
+      <div class="plan-badge" style="background: var(--gold); border: none; color: #1A1410;">Máxima transformação</div>
+      <div class="plan-name">Elite</div>
+      <div class="plan-tagline">Imersão total no método TechnoX</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Academia — acesso por 6 meses
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Nutricionista — 4 consultas
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Enfermagem — 4 consultas
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Avaliação física com personal — 4x
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consultoria de treinamento
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Consulta médica — 2x
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Exames laboratoriais — 2x
+          </span>
+        </li>
+      </ul>
+
+      <div class="plan-value-summary">
+        <div class="plan-value-would-pay">
+          <span class="value-label">Você pagaria</span>
+          <span class="value-total">R$ 28.116,00</span>
+        </div>
+        <div class="plan-value-divider"></div>
+        <div class="plan-price-main">
+          <div class="plan-price-row">
+            <span class="price-times">6×</span>
+            <span class="price-big">R$ 5.000</span>
+          </div>
+          <div class="price-cash-line">ou R$ 30.000 à vista</div>
+        </div>
+      </div>
+
+      <div class="plan-elite-extras">
+        <div class="extra-label">Exclusivo Elite</div>
+        <div class="extra-item">Protocolo Tirzepatida — quando indicado</div>
+        <div class="extra-item">Voucher Soroterapia — R$ 3.000</div>
+      </div>
+      <a href="#cta" class="plan-cta">Quero o Elite</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-h"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div style="display:flex;justify-content:center;margin-bottom:32px;">
+    <img src="2.png" alt="TechnoX" style="height: 60px; width: auto; filter: invert(1); mix-blend-mode: screen;">
+  </div>
+  <span class="overline">Pronto para começar</span>
+  <h2>
+    Seu corpo<br>
+    merece um<br>
+    <span class="gold">método real</span>
+  </h2>
+  <p>
+    Agende sua avaliação inicial com a equipe TechnoX. Em uma única consulta, você já terá mais clareza sobre o seu corpo do que em anos de tentativas isoladas.
+  </p>
+
+  <div class="cta-actions">
+    <a href="#" class="btn-cta-main">Agendar avaliação gratuita</a>
+    <span class="cta-note">Vagas limitadas · Protocolo 100% personalizado · Resultado documentado</span>
+  </div>
+</section>
+
+
+
+<script>
+  // Smooth reveal on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -60px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements
+  const revealEls = document.querySelectorAll(
+    '.pilar, .pain-item, .step-item, .diff-item, .metric-item, .testimonial-item, .intro-right, .problema-header, .method-header, .steps-header, .results-left, .results-right, .differentials-left, .differentials-right'
+  );
+
+  revealEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.7s ease ${(i % 4) * 0.1}s, transform 0.7s ease ${(i % 4) * 0.1}s`;
+    observer.observe(el);
+  });
+
+
+</script>
+</body>
+</html>
