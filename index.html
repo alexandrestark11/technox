@@ -1469,6 +1469,11 @@
     box-shadow: 0 12px 40px rgba(201,168,76,0.25);
   }
 
+  /* Start card — letras PRETAS */
+  .plan-card.start .plan-name { color: #000; }
+  .plan-card.start .plan-tagline { color: #000; font-weight: 400; }
+  .plan-card.start .plan-features li { color: #000; font-weight: 400; }
+
   /* Featured card (Performance) — fundo dourado, letras BRANCAS */
   .plan-card.featured .plan-name { color: #fff; }
   .plan-card.featured .plan-tagline { color: rgba(255,255,255,0.7); }
@@ -2240,7 +2245,7 @@
   <div class="plans-grid">
 
     <!-- START -->
-    <div class="plan-card">
+    <div class="plan-card start">
       <div class="plan-badge hidden">—</div>
       <div class="plan-name">Start</div>
       <div class="plan-tagline">A base para começar do jeito certo</div>
@@ -2252,13 +2257,6 @@
             Academia — acesso por 3 meses
           </span>
           <span class="feat-original">R$ 759,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta com nutricionista — 1x
-          </span>
-          <span class="feat-original">R$ 500,00</span>
         </li>
         <li>
           <span class="feat-label">
@@ -2280,6 +2278,12 @@
             Exames laboratoriais inclusos
           </span>
           <span class="feat-original">R$ 800,00</span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Bioimpedâncias semanais
+          </span>
         </li>
       </ul>
 
@@ -2350,6 +2354,12 @@
             Exames laboratoriais inclusos
           </span>
         </li>
+        <li class="highlight-feat">
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Bioimpedâncias semanais
+          </span>
+        </li>
       </ul>
 
       <div class="plan-value-summary">
@@ -2404,19 +2414,19 @@
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consultoria de treinamento
-          </span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta médica — 2x
+            Consulta médica — 4x
           </span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             Exames laboratoriais — 2x
+          </span>
+        </li>
+        <li>
+          <span class="feat-label">
+            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Bioimpedâncias semanais
           </span>
         </li>
       </ul>
@@ -2440,6 +2450,7 @@
         <div class="extra-label">Exclusivo Elite</div>
         <div class="extra-item">Protocolo Tirzepatida — quando indicado</div>
         <div class="extra-item">Voucher Soroterapia — R$ 3.000</div>
+        <div class="extra-item">Manipulados inclusos</div>
       </div>
       <a href="#cta" class="plan-cta">Quero o Elite</a>
     </div>
