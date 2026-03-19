@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechnoX — Método Technobody</title>
+<title>TechnoX | O Método Technobody</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -80,16 +80,18 @@
     width: 100%;
   }
 
-  /* NAV */
+  /* NAV ATUALIZADO */
   nav {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 24px 60px;
+    z-index: 1000;
+    padding: 16px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(5,5,5,0.6), transparent);
+    background: rgba(13,13,13,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
   }
 
   .nav-logo {
@@ -1491,6 +1493,7 @@
   .plan-card.featured .price-cash-line { color: rgba(255,255,255,0.6); }
   .plan-card.featured .plan-cta { background: #fff; color: #1A1410; border-color: #fff; font-weight: 700; }
   .plan-card.featured .plan-cta:hover { background: rgba(255,255,255,0.88); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+  .plan-card.featured .plan-features li .feat-original { color: #fff; opacity: 0.8; }
   .plan-card.featured .plan-badge { background: #1A1410; color: var(--gold); }
 
   /* Elite card — fundo PRETO, letras BRANCAS */
@@ -1520,7 +1523,10 @@
   .plan-card.elite .plan-cta { border-color: var(--gold); color: var(--gold); }
   .plan-card.elite .plan-cta:hover { background: rgba(201,168,76,0.12); border-color: var(--gold-light); }
   .plan-card.elite .plan-elite-extras { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.2); }
+  .plan-card.elite .plan-features li .feat-original { color: #fff; opacity: 0.75; }
   .plan-card.elite .extra-item { color: #F5F3EF; }
+  .plan-card.elite .value-label { font-size: 0.7rem; color: var(--gold); border-color: var(--gold); padding: 6px 12px; }
+  .plan-card.elite .value-total { font-size: 1.2rem; font-weight: 700; color: #fff; opacity: 1; }
 
   .plan-features li .feat-original {
     margin-left: auto;
@@ -1892,7 +1898,7 @@
     </p>
 
     <div class="hero-actions">
-      <a href="#intro" class="btn-primary"><span>Conhecer o método</span></a>
+      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20TechnoX" target="_blank" class="btn-primary"><span>Começar agora</span></a>
     </div>
 
     <div class="hero-stats">
@@ -1902,7 +1908,7 @@
       </div>
       <div class="stat-item">
         <span class="stat-number">97%</span>
-        <span class="stat-label">dos pacientes atingem a meta</span>
+        <span class="stat-label">dos pacientes atingiram a meta</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">6 em 1</span>
@@ -1946,7 +1952,7 @@
         <span class="intro-pain-num">03</span>
         <div class="intro-pain-text">
           <strong>Sem dados, sem direção</strong>
-          Sem bioimpedância e exames periódicos, você está no escuro — ajustando sem saber o que está errado.
+          Sem bioimpedância e exames periódicos, você está no escuro: ajustando sem saber o que está errado.
         </div>
       </div>
     </div>
@@ -1979,7 +1985,7 @@
       </div>
       <h3>Medicina Nutrológica</h3>
       <div class="pilar-specialty">Diagnóstico & Prescrição</div>
-      <p>O ponto de partida. O médico nutrólogo investiga sua bioquímica, perfil hormonal e metabolismo para prescrever o protocolo base. Sem achismo — com exames e ciência.</p>
+      <p>O ponto de partida. O Médico investiga sua bioquímica, perfil hormonal e metabolismo para prescrever o protocolo base. Sem achismo, apenas exames e ciência de ponta.</p>
     </div>
 
     <div class="pilar">
@@ -2005,7 +2011,7 @@
       </div>
       <h3>Treinamento Prescrito</h3>
       <div class="pilar-specialty">Performance & Composição</div>
-      <p>Treino periodizado com base na sua composição corporal real. Foco em emagrecimento com preservação muscular — ou hipertrofia orientada para quem quer ganhar massa com qualidade.</p>
+      <p>Treino periodizado com base na sua composição corporal real. Foco em emagrecimento com preservação muscular e hipertrofia orientada para quem quer ganhar massa com qualidade.</p>
     </div>
 
     <div class="pilar">
@@ -2018,7 +2024,7 @@
       </div>
       <h3>Soroterapia</h3>
       <div class="pilar-specialty">Reposição Intravenosa</div>
-      <p>Vitaminas, minerais e aminoácidos essenciais diretamente na corrente sanguínea. Absorção de 100%. O que suplemento oral nunca vai conseguir — reposição celular de verdade.</p>
+      <p>A potência máxima da suplementação celular. Nutrientes injetados diretamente na corrente sanguínea com 100% de absorção. Uma reposição biológica profunda que entrega o que comprimidos jamais alcançariam.</p>
     </div>
 
     <div class="pilar">
@@ -2029,9 +2035,9 @@
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bd1a10d9a398abb4f18/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
-      <h3>Consulta de Enfermagem</h3>
+      <h3>Enfermagem</h3>
       <div class="pilar-specialty">Monitoramento Clínico</div>
-      <p>Acompanhamento clínico contínuo entre as consultas médicas. Sinais vitais, aderência ao protocolo, ajustes de rotina. O elo entre você e o time de saúde.</p>
+      <p>Leitura técnica de exames e acompanhamento rigoroso de sintomas. O monitoramento clínico que transforma dados laboratoriais em ajustes precisos no protocolo, garantindo que sua evolução nunca pare.</p>
     </div>
 
     <div class="pilar">
@@ -2076,7 +2082,7 @@
       <div class="step-content">
         <div class="step-tag">Diagnóstico</div>
         <h3>Avaliação Completa do Seu Corpo</h3>
-        <p>Tudo começa com dados. Bioimpedância avançada, exames laboratoriais completos e anamnese detalhada com nosso médico nutrólogo. Aqui mapeamos exatamente onde você está — sem suposições.</p>
+        <p>Tudo começa com dados. Bioimpedância avançada, exames laboratoriais completos e anamnese detalhada com nosso médico nutrólogo. Aqui mapeamos exatamente onde você está: sem suposições.</p>
       </div>
       <div class="step-detail">
         <div class="step-detail-item">Análise de composição corporal segmentada</div>
@@ -2159,7 +2165,7 @@
         por si
       </h2>
       <p>
-        O TechnoX não promete milagres. Entrega dados. Cada paciente acompanhado pelo método documenta sua evolução com precisão científica — sem filtro, sem trucagem.
+        O TechnoX não promete milagres. Entrega dados. Cada paciente acompanhado pelo método documenta sua evolução com precisão científica, sem filtros ou trucagem.
       </p>
 
       <div class="results-metrics">
@@ -2238,7 +2244,7 @@
       Planos <span class="gold">TechnoX</span>
     </h2>
     <p>
-      Cada plano foi desenhado para um momento diferente da sua jornada. Do primeiro passo à transformação total — o método integrado Technobody em diferentes níveis de imersão.
+      Cada plano foi desenhado para um momento diferente da sua jornada. Do primeiro passo à transformação total: o método integrado Technobody em diferentes níveis de imersão.
     </p>
   </div>
 
@@ -2246,7 +2252,7 @@
 
     <!-- START -->
     <div class="plan-card start">
-      <div class="plan-badge hidden">—</div>
+      <div class="plan-badge hidden">.</div>
       <div class="plan-name">Start</div>
       <div class="plan-tagline">A base para começar do jeito certo</div>
       <div class="plan-divider"></div>
@@ -2254,23 +2260,23 @@
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia — acesso por 3 meses
+            Academia | acesso por 3 meses
           </span>
-          <span class="feat-original">R$ 759,00</span>
+          <span class="feat-original">R$ 867,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta de enfermagem — 1x
+            Enfermagem | 1x
           </span>
-          <span class="feat-original">R$ 750,00</span>
+          <span class="feat-original">R$ 350,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             Consultoria de treinamento
           </span>
-          <span class="feat-original">R$ 1.500,00</span>
+          <span class="feat-original">R$ 500,00</span>
         </li>
         <li>
           <span class="feat-label">
@@ -2282,15 +2288,16 @@
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais
+            Bioimpedâncias semanais | 15x
           </span>
+          <span class="feat-original">R$ 1.800,00</span>
         </li>
       </ul>
 
       <div class="plan-value-summary">
         <div class="plan-value-would-pay">
           <span class="value-label">Você pagaria</span>
-          <span class="value-total">R$ 4.309,00</span>
+          <span class="value-total">R$ 4.317,00</span>
         </div>
         <div class="plan-value-divider"></div>
         <div class="plan-price-main">
@@ -2302,7 +2309,7 @@
         </div>
       </div>
 
-      <a href="#cta" class="plan-cta">Começar agora</a>
+      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Start!" target="_blank" class="plan-cta">Começar agora</a>
     </div>
 
     <!-- PERFORMANCE -->
@@ -2315,57 +2322,65 @@
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia — acesso por 3 meses
+            Academia | acesso por 3 meses
           </span>
+          <span class="feat-original">R$ 867,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Nutricionista — 2 consultas
+            Nutricionista | 2 consultas
           </span>
+          <span class="feat-original">R$ 2.000,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Enfermagem — 2 consultas
+            Enfermagem | 2 consultas
           </span>
+          <span class="feat-original">R$ 700,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Avaliação física com personal — 2x
+            Avaliação física com personal | 2x
           </span>
+          <span class="feat-original">R$ 1.000,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             Consultoria de treinamento
           </span>
+          <span class="feat-original">R$ 500,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta médica — 1x
+            Consulta médica | 1x
           </span>
+          <span class="feat-original">R$ 1.500,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
             Exames laboratoriais inclusos
           </span>
+          <span class="feat-original">R$ 800,00</span>
         </li>
         <li class="highlight-feat">
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais
+            Bioimpedâncias semanais | 15x
           </span>
+          <span class="feat-original">R$ 1.800,00</span>
         </li>
       </ul>
 
       <div class="plan-value-summary">
         <div class="plan-value-would-pay">
           <span class="value-label">Você pagaria</span>
-          <span class="value-total">R$ 9.558,00</span>
+          <span class="value-total">R$ 9.167,00</span>
         </div>
         <div class="plan-value-divider"></div>
         <div class="plan-price-main">
@@ -2377,7 +2392,7 @@
         </div>
       </div>
 
-      <a href="#cta" class="plan-cta">Quero este plano</a>
+      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Performance!" target="_blank" class="plan-cta">Quero este plano</a>
     </div>
 
     <!-- ELITE -->
@@ -2390,53 +2405,62 @@
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia — acesso por 3 meses
+            Academia | acesso por 3 meses
           </span>
+          <span class="feat-original">R$ 867,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Nutricionista — 3 consultas
+            Nutricionista | 3 consultas
           </span>
+          <span class="feat-original">R$ 3.000,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Enfermagem — 3 consultas
+            Enfermagem | 3 consultas
           </span>
+          <span class="feat-original">R$ 1.050,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Avaliação física com personal — 3x
+            Avaliação física com personal | 3x
           </span>
+          <span class="feat-original">R$ 1.500,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta médica — 2x
+            Consulta médica | 2x
           </span>
+          <span class="feat-original">R$ 3.000,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Exames laboratoriais — 2x
+            Exames laboratoriais | 2x
           </span>
+          <span class="feat-original">R$ 1.600,00</span>
         </li>
         <li>
           <span class="feat-label">
             <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais
+            Bioimpedâncias semanais | 15x
           </span>
+          <span class="feat-original">R$ 1.800,00</span>
         </li>
       </ul>
 
+      <div class="plan-elite-extras">
+        <div class="extra-label">Exclusivo Elite</div>
+        <div class="extra-item">Protocolo Tirzepatida | + de R$ 6.000,00</div>
+        <div class="extra-item">Voucher Soroterapia | R$ 3.000,00</div>
+        <div class="extra-item">Manipulados inclusos | + de R$ 2.000,00</div>
+      </div>
+
       <div class="plan-value-summary">
-        <div class="plan-value-would-pay">
-          <span class="value-label">Você pagaria</span>
-          <span class="value-total">R$ 28.116,00</span>
-        </div>
-        <div class="plan-value-divider"></div>
         <div class="plan-price-main">
           <div class="plan-price-row">
             <span class="price-times">6×</span>
@@ -2445,14 +2469,7 @@
           <div class="price-cash-line">ou R$ 30.000 à vista</div>
         </div>
       </div>
-
-      <div class="plan-elite-extras">
-        <div class="extra-label">Exclusivo Elite</div>
-        <div class="extra-item">Protocolo Tirzepatida — quando indicado</div>
-        <div class="extra-item">Voucher Soroterapia — R$ 3.000</div>
-        <div class="extra-item">Manipulados inclusos</div>
-      </div>
-      <a href="#cta" class="plan-cta">Quero o Elite</a>
+      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Elite!" target="_blank" class="plan-cta">Quero o Elite</a>
     </div>
 
   </div>
@@ -2476,7 +2493,7 @@
   </p>
 
   <div class="cta-actions">
-    <a href="#" class="btn-cta-main">Agendar avaliação gratuita</a>
+    <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20TechnoX" target="_blank" class="btn-cta-main">Agendar avaliação gratuita</a>
     <span class="cta-note">Vagas limitadas · Protocolo 100% personalizado · Resultado documentado</span>
   </div>
 </section>
