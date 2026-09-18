@@ -124,10 +124,10 @@
   /* HERO */
   /* HERO — CSS Grid overlay so video + text share same cell */
   .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: grid;
     grid-template-areas: 'stack';
-    background: #0D0D0D;
+    background: #000;
     color: #F7F5F1;
     overflow: hidden;
   }
@@ -139,12 +139,7 @@
   }
 
   .hero-video-bg {
-    width: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.25;
-    min-height: 100vh;
+    display: none;
   }
 
   .hero-video-bg vturb-smartplayer {
@@ -158,10 +153,9 @@
     pointer-events: none;
     background: linear-gradient(
       to bottom,
-      rgba(13,13,13,0.4) 0%,
-      rgba(13,13,13,0.15) 30%,
-      rgba(13,13,13,0.6) 65%,
-      rgba(13,13,13,1) 100%
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.84) 42%,
+      rgba(0,0,0,1) 100%
     );
   }
 
@@ -171,10 +165,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    padding: 140px 60px 100px;
-    max-width: 860px;
+    padding: 88px 60px 68px;
+    max-width: 1180px;
     margin: 0 auto;
     width: 100%;
   }
@@ -198,7 +192,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
+  }
+
+  .hero-team {
+    width: min(100%, 1120px);
+    margin: -6px auto -34px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-team img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 24px 46px rgba(0,0,0,0.55));
   }
 
   .wordmark-techno {
@@ -234,15 +242,17 @@
 
   .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.65rem, 3.2vw, 3rem);
     font-weight: 300;
     color: #F7F5F1;
-    margin-bottom: 60px;
+    margin-bottom: 0;
     line-height: 1.3;
     max-width: 850px;
     letter-spacing: -0.01em;
     text-transform: none;
     opacity: 0.9;
+    position: relative;
+    z-index: 2;
   }
 
   /* Testimonials Large Image Design */
@@ -443,9 +453,9 @@
   }
 
   .intro-inner {
-    max-width: 1100px;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 100px 60px;
+    padding: 100px 84px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -459,7 +469,7 @@
   .intro-left::before {
     content: '';
     position: absolute;
-    left: -30px;
+    left: -34px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -681,7 +691,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 28px;
   }
 
   .pilar {
@@ -749,7 +759,7 @@
 
   /* STEPS / PASSOS */
   .steps {
-    padding: 120px 60px;
+    padding: 82px 60px 120px;
     background: #EEEAE3;
     position: relative;
   }
@@ -818,7 +828,8 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.3);
+    background: #000;
+    border: 1px solid #000;
     padding: 4px 12px;
     margin-bottom: 16px;
   }
@@ -1003,8 +1014,9 @@
 
   .testimonials-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin-bottom: 80px;
   }
 
@@ -1275,6 +1287,7 @@
     background: #EDE9E1;
     position: relative;
     overflow: hidden;
+    display: none;
   }
 
   .plans::before {
@@ -1528,6 +1541,173 @@
   .plan-card.elite .value-label { font-size: 0.7rem; color: var(--gold); border-color: var(--gold); padding: 6px 12px; }
   .plan-card.elite .value-total { font-size: 1.2rem; font-weight: 700; color: #fff; opacity: 1; }
 
+  .schedule {
+    padding: 120px 60px;
+    background: #EDE9E1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .schedule::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(201,168,76,0.14), transparent 38%),
+      radial-gradient(circle at 88% 18%, rgba(201,168,76,0.16), transparent 30%);
+    pointer-events: none;
+  }
+
+  .schedule-window {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #F7F5F1;
+    border: 1px solid rgba(201,168,76,0.28);
+    box-shadow: 0 24px 80px rgba(26,20,16,0.10);
+    position: relative;
+    z-index: 1;
+  }
+
+  .schedule-topbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.16);
+    background: rgba(255,255,255,0.34);
+  }
+
+  .schedule-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.75;
+  }
+
+  .schedule-content {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 56px;
+    padding: 58px;
+    align-items: center;
+  }
+
+  .schedule h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 20px 0 24px;
+  }
+
+  .schedule p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #5C5449;
+    line-height: 1.85;
+    max-width: 560px;
+  }
+
+  .schedule-list {
+    display: grid;
+    gap: 12px;
+    margin: 32px 0 0;
+  }
+
+  .schedule-list span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #1A1410;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .schedule-list span::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    flex: 0 0 auto;
+  }
+
+  .schedule-card {
+    background: #1A1410;
+    color: #F7F5F1;
+    padding: 34px;
+    border: 1px solid rgba(201,168,76,0.4);
+  }
+
+  .schedule-card-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+
+  .schedule-card strong {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .schedule-card p {
+    color: rgba(247,245,241,0.68);
+    font-size: 0.86rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .schedule-cta {
+    display: block;
+    width: 100%;
+    background: var(--gold);
+    color: #1A1410;
+    text-align: center;
+    text-decoration: none;
+    padding: 17px 20px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .schedule-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .schedule-note {
+    display: block;
+    margin-top: 14px;
+    color: rgba(247,245,241,0.52);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .testimonials-footer-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4.4vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #1A1410;
+  }
+
+  .no-break {
+    white-space: nowrap;
+  }
+
   .plan-features li .feat-original {
     margin-left: auto;
     font-size: 0.7rem;
@@ -1745,7 +1925,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 60px 0 20px;
+    padding: 22px 0 0;
   }
 
   .gold-line-center .line-h {
@@ -1788,8 +1968,9 @@
   .hero-title { animation-delay: 0.4s !important; }
   .hero-subtitle { animation-delay: 0.55s !important; }
   .hero-body { animation-delay: 0.7s !important; }
+  .hero-team { animation-delay: 0.65s !important; }
   .hero-actions { animation-delay: 0.85s !important; }
-  .hero-stats { animation-delay: 1s !important; }
+  .hero-stats { animation-delay: 0.9s !important; }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
@@ -1799,7 +1980,9 @@
       grid-template-columns: 1fr;
       min-height: auto;
     }
-    .hero { padding: 120px 30px 80px; }
+    .hero-content { padding: 82px 30px 62px; }
+    .hero-wordmark { margin-bottom: 12px !important; }
+    .hero-team { margin-top: -4px; margin-bottom: -22px; }
     .hero-stats { gap: 32px; }
 
     .intro { padding: 70px 30px; }
@@ -1810,10 +1993,10 @@
     .plans { padding: 80px 30px; }
     .plans-grid { grid-template-columns: 1fr; }
 
-    .method { padding: 80px 30px; }
-    .pilares-grid { grid-template-columns: 1fr; gap: 40px; }
+    .method { padding: 80px 30px 52px; }
+    .pilares-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 16px; }
 
-    .steps { padding: 80px 30px; }
+    .steps { padding: 52px 30px 80px; }
     .step-item { grid-template-columns: 60px 1fr; gap: 24px; }
     .step-detail { display: none; }
 
@@ -1822,8 +2005,8 @@
 
     .testimonials { padding: 80px 30px; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    .testimonials-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .testimonials-header p { text-align: left; }
+    .testimonials-header { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+    .testimonials-header p { text-align: center; }
 
     .differentials { padding: 80px 30px; }
     .differentials-inner { grid-template-columns: 1fr; gap: 60px; }
@@ -1840,40 +2023,435 @@
   }
 
   @media (max-width: 768px) {
-    .hero { padding: 80px 20px 60px; }
+    body { font-size: 16px; }
+
+    nav {
+      padding: 12px 16px;
+      background: rgba(13,13,13,0.9);
+    }
+
+    .nav-logo {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-cta {
+      padding: 9px 12px;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-video-bg,
+    .hero-video-bg vturb-smartplayer {
+      min-height: 100svh;
+    }
+
+    .hero-content {
+      justify-content: flex-start;
+      padding: 72px 26px 36px;
+      min-height: auto;
+    }
+
+    .hero-wordmark {
+      margin-bottom: 8px !important;
+    }
+
     .hero-wordmark img { height: 50px !important; }
-    .hero-subtitle { font-size: 1.4rem !important; line-height: 1.3; margin-bottom: 40px; }
+
+    .hero-team {
+      width: calc(100% + 44px);
+      max-width: none;
+      margin: -4px -22px -16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.88rem !important;
+      line-height: 1.16;
+      margin-bottom: 0;
+      max-width: 22rem;
+    }
+
+    .hero-actions,
+    .btn-primary {
+      width: 100%;
+    }
+
+    .btn-primary {
+      padding: 17px 20px;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+    }
     
     .hero-stats { 
       flex-direction: column !important; 
-      gap: 40px !important; 
-      padding-top: 40px;
-      margin-top: 60px;
+      gap: 10px !important; 
+      padding-top: 18px;
+      margin-top: 24px;
+      width: 100%;
+      border-top-color: rgba(201,168,76,0.2);
     }
     
     .stat-item { 
       width: 100%;
       text-align: center;
-    }
-    
-    .stat-label { 
-      max-width: 200px;
-      line-height: 1.5;
+      gap: 6px;
+      padding: 13px 14px;
+      background: rgba(247,245,241,0.06);
+      border: 1px solid rgba(201,168,76,0.14);
     }
 
-    .intro-inner { grid-template-columns: 1fr; gap: 48px; }
-    .intro-title { font-size: 2.2rem; }
+    .stat-number { font-size: 1.78rem; }
     
-    .results-metrics { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .results-img-area { height: 350px; }
+    .stat-label { 
+      max-width: 230px;
+      line-height: 1.35;
+      letter-spacing: 0.1em;
+      margin: 0 auto;
+    }
+
+    .intro,
+    .problema,
+    .method,
+    .steps,
+    .results,
+    .testimonials,
+    .differentials,
+    .plans,
+    .schedule,
+    .cta-section {
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+
+    .intro {
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    .intro-inner {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 58px 0;
+    }
+
+    .intro-left::before { left: -18px; }
+    .intro-title {
+      font-size: 2.15rem;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .intro-body { font-size: 0.95rem; line-height: 1.75; }
+    .intro-pain-item { gap: 16px; padding: 22px 0; }
+
+    .problema,
+    .method,
+    .steps,
+    .results,
+    .testimonials,
+    .differentials,
+    .schedule,
+    .plans {
+      padding-top: 58px;
+      padding-bottom: 58px;
+    }
+
+    .problema { padding-bottom: 44px; }
+    .method { padding-top: 44px; padding-bottom: 38px; }
+    .steps { padding-top: 42px; }
+
+    .problema-header,
+    .method-header,
+    .steps-header,
+    .testimonials-header,
+    .plans-header {
+      margin-bottom: 32px;
+    }
+
+    .problema-header h2,
+    .method-header h2,
+    .steps-header h2,
+    .results-left h2,
+    .differentials-left h2,
+    .plans-header h2 {
+      font-size: 2.15rem;
+      line-height: 1.08;
+      margin-top: 12px;
+      margin-bottom: 18px;
+    }
+
+    .method-header {
+      text-align: left;
+    }
+
+    .method-header p,
+    .problema-header p {
+      line-height: 1.7;
+    }
+
+    .pain-grid {
+      grid-template-columns: 1fr;
+      margin-top: 24px;
+    }
+
+    .pain-item,
+    .testimonial-content,
+    .testimonial-item {
+      padding: 24px 20px;
+    }
+
+    .pain-icon {
+      margin-bottom: 16px;
+    }
+
+    .pain-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .pain-item p {
+      line-height: 1.65;
+    }
+
+    .pilares-grid {
+      gap: 28px;
+      margin-bottom: 12px;
+    }
+
+    .gold-line-center {
+      padding: 14px 0 0;
+    }
+
+    .pilar {
+      padding-top: 24px;
+    }
+
+    .pilar-icon-area {
+      margin-bottom: 18px;
+    }
+
+    .pilar .pilar-specialty {
+      letter-spacing: 0.14em;
+      line-height: 1.45;
+    }
+
+    .step-item {
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      padding: 28px 0;
+    }
+
+    .step-num {
+      font-size: 0.82rem;
+    }
     
-    .testimonial-img { height: 280px; }
+    .results-inner,
+    .differentials-inner {
+      gap: 42px;
+    }
+
+    .results-metrics {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .metric-item {
+      padding: 22px;
+    }
+
+    .results-img-area {
+      height: auto;
+      min-height: 320px;
+      aspect-ratio: 4 / 5;
+    }
+
+    .results-img-area::before {
+      inset: -10px -10px 10px 10px;
+    }
+
+    .results-badge {
+      right: 12px;
+      bottom: 12px;
+      width: 96px;
+      height: 96px;
+    }
     
-    .cta-section h2 { font-size: 2rem; }
+    .testimonials-header {
+      margin-bottom: 34px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimonials-footer {
+      margin-top: 40px !important;
+    }
+
+    .testimonials-footer-title {
+      font-size: clamp(1.8rem, 8.4vw, 2.35rem);
+      line-height: 1.08;
+    }
+
+    .testimonial-img {
+      height: 240px;
+      margin: -24px -20px 0;
+      width: calc(100% + 40px);
+      max-width: none;
+    }
+
+    .diff-img {
+      max-height: 360px;
+      object-fit: cover;
+    }
+
+    .diff-item {
+      padding: 28px 0;
+    }
+
+    .plans-grid {
+      gap: 18px;
+    }
+
+    .plan-card {
+      padding: 34px 22px 36px;
+    }
+
+    .plan-features li {
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.55;
+    }
+
+    .plan-features li .feat-original {
+      margin-left: 0;
+      white-space: nowrap;
+    }
+
+    .price-big {
+      font-size: clamp(2.4rem, 16vw, 3.7rem);
+    }
+
+    .schedule-window {
+      box-shadow: 0 18px 50px rgba(26,20,16,0.10);
+    }
+
+    .schedule-content {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 32px 22px;
+    }
+
+    .schedule h2 {
+      font-size: 2.3rem;
+      line-height: 1.05;
+      margin: 14px 0 18px;
+    }
+
+    .schedule p {
+      font-size: 0.95rem;
+      line-height: 1.72;
+    }
+
+    .schedule-list {
+      margin-top: 24px;
+      gap: 10px;
+    }
+
+    .schedule-list span {
+      align-items: flex-start;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      letter-spacing: 0.03em;
+    }
+
+    .schedule-list span::before {
+      margin-top: 5px;
+    }
+
+    .schedule-card {
+      padding: 26px 20px;
+    }
+
+    .schedule-card strong {
+      font-size: 1.35rem;
+    }
+    
+    .cta-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .cta-section h2 { font-size: 2rem; line-height: 1.08; }
+    .cta-section p { font-size: 0.95rem; line-height: 1.75; }
+  }
+
+  @media (max-width: 380px) {
+    .nav-logo { font-size: 0.78rem; letter-spacing: 0.14em; }
+    .nav-cta { padding: 8px 10px; font-size: 0.54rem; }
+    .hero-content { padding: 68px 22px 34px; }
+    .hero-team {
+      width: calc(100% + 38px);
+      margin-left: -19px;
+      margin-right: -19px;
+      margin-bottom: -10px;
+    }
+    .intro,
+    .problema,
+    .method,
+    .steps,
+    .results,
+    .testimonials,
+    .differentials,
+    .schedule,
+    .cta-section {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .intro {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    .hero-subtitle { font-size: 1.52rem !important; }
+    .stat-number { font-size: 1.65rem; }
+    .testimonials-footer-title { font-size: clamp(1.62rem, 8vw, 2.05rem); }
+    .schedule-content { padding: 28px 18px; }
+    .schedule h2 { font-size: 2.05rem; }
+    .problema-header h2,
+    .method-header h2,
+    .steps-header h2,
+    .results-left h2,
+    .differentials-left h2,
+    .plans-header h2 {
+      font-size: 1.92rem;
+    }
   }
 
   /* HOVER GOLD GLOW LINES */
   .btn-primary:hover { box-shadow: 0 10px 40px rgba(201,168,76,0.15); }
+
+  /* PULSE ANIMATION */
+  @keyframes pulse-gold {
+    0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.55); }
+    60%  { box-shadow: 0 0 0 14px rgba(201,168,76,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+  }
+
+  .schedule-cta {
+    animation: pulse-gold 1.8s ease-out infinite;
+  }
+
+  /* VIDEO BIO NA SEÇÃO SCHEDULE */
+  .schedule-bio-video {
+    margin-top: 28px;
+    border: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+  }
 </style>
 </head>
 <body>
@@ -1881,10 +2459,6 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-video-bg">
-    <vturb-smartplayer id="vid-69b37082466251994767c4d6" style="display:block;width:100%;height:100%;" autoplay="true" muted="true"></vturb-smartplayer>
-    <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b37082466251994767c4d6/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-  </div>
   <div class="hero-video-overlay"></div>
 
   <div class="hero-content">
@@ -1893,13 +2467,13 @@
       <img src="2.png" alt="TechnoX" style="height: 100px; width: auto; filter: invert(1) brightness(2);">
     </div>
 
+    <div class="hero-team">
+      <img src="secao-hero.png" alt="Equipe TechnoX">
+    </div>
+
     <p class="hero-subtitle">
       A máxima evolução do seu corpo através de um método já validado.
     </p>
-
-    <div class="hero-actions">
-      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20TechnoX" target="_blank" class="btn-primary"><span>Começar agora</span></a>
-    </div>
 
     <div class="hero-stats">
       <div class="stat-item">
@@ -1924,12 +2498,11 @@
     <div class="intro-left">
       <h2 class="intro-title">
         Por que nada<br>
-        funcionou<br>
+        funcionou pra você<br>
         <span class="gold">até hoje?</span>
       </h2>
       <p class="intro-body">
-        Você tentou. Cortou carboidrato. Treinou. Tomou suplemento.<br><br>
-        E o corpo não mudou o suficiente.<br><br>
+        Você tentou. Cortou carboidrato. Treinou. Tomou suplemento. E o corpo não mudou o suficiente.
         <strong>Não é falta de esforço. É falta de integração.</strong>
       </p>
     </div>
@@ -1951,8 +2524,8 @@
       <div class="intro-pain-item">
         <span class="intro-pain-num">03</span>
         <div class="intro-pain-text">
-          <strong>Sem dados, sem direção</strong>
-          Sem bioimpedância e exames periódicos, você está no escuro: ajustando sem saber o que está errado.
+          <strong>Sem avaliação física</strong>
+          Sem avaliação física, você está no escuro: ajustando sem saber o que está errado.
         </div>
       </div>
     </div>
@@ -1979,7 +2552,7 @@
       <div class="pilar-num">01</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bc2a10d9a398abb4ee7" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bc2a10d9a398abb4ee7" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bc2a10d9a398abb4ee7/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -1992,7 +2565,7 @@
       <div class="pilar-num">02</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bd6faf9397e2331bec7" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bd6faf9397e2331bec7" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bd6faf9397e2331bec7/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -2005,7 +2578,7 @@
       <div class="pilar-num">03</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bccee2947d3ff2bfa1c" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bccee2947d3ff2bfa1c" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bccee2947d3ff2bfa1c/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -2018,7 +2591,7 @@
       <div class="pilar-num">04</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bc6005f4e6dada97482" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bc6005f4e6dada97482" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bc6005f4e6dada97482/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -2031,7 +2604,7 @@
       <div class="pilar-num">05</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bd1a10d9a398abb4f18" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bd1a10d9a398abb4f18" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bd1a10d9a398abb4f18/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -2044,7 +2617,7 @@
       <div class="pilar-num">06</div>
       <div class="pilar-icon-area">
         <div class="pilar-video-wrap">
-          <vturb-smartplayer id="vid-69b36bdb243e791f072a163f" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-69b36bdb243e791f072a163f" style="display: block; margin: 0 auto; width: 100%;" autoplay="true" muted="true" defaultMuted="true" volume="0"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/69b36bdb243e791f072a163f/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
@@ -2227,273 +2800,80 @@
     </div>
 
     <div class="testimonials-footer" style="text-align: center; margin-top: 56px;">
-      <h2 style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: clamp(1.4rem, 3vw, 2.4rem); line-height: 1.25; letter-spacing: -0.02em; color: #1A1410;">
+      <h2 class="testimonials-footer-title">
         Cada história é única.<br>
-        <span class="gold" style="font-style:italic;">O protocolo é personalizado.</span><br>
-        O resultado é documentado.
+        <span class="gold no-break" style="font-style:italic;">O protocolo é personalizado.</span>
       </h2>
     </div>
 </section>
 
 
-<!-- PLANS -->
-<section class="plans" id="planos">
-  <div class="plans-header">
-    <span class="overline">Escolha seu caminho</span>
-    <h2>
-      Planos <span class="gold">TechnoX</span>
-    </h2>
-    <p>
-      Cada plano foi desenhado para um momento diferente da sua jornada. Do primeiro passo à transformação total: o método integrado Technobody em diferentes níveis de imersão.
-    </p>
-  </div>
-
-  <div class="plans-grid">
-
-    <!-- START -->
-    <div class="plan-card start">
-      <div class="plan-badge hidden">.</div>
-      <div class="plan-name">Start</div>
-      <div class="plan-tagline">A base para começar do jeito certo</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia | acesso por 3 meses
-          </span>
-          <span class="feat-original">R$ 899,70</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Enfermagem | 1x
-          </span>
-          <span class="feat-original">R$ 500,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consultoria de treinamento
-          </span>
-          <span class="feat-original">R$ 350,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Exames laboratoriais inclusos
-          </span>
-          <span class="feat-original">R$ 800,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais | 12x
-          </span>
-          <span class="feat-original">R$ 1.800,00</span>
-        </li>
-      </ul>
-
-      <div class="plan-value-summary">
-        <div class="plan-value-would-pay">
-          <span class="value-label">Você pagaria</span>
-          <span class="value-total">R$ 4.349,70</span>
-        </div>
-        <div class="plan-value-divider"></div>
-        <div class="plan-price-main">
-          <div class="plan-price-row">
-            <span class="price-times">3×</span>
-            <span class="price-big">R$ 1.000</span>
-          </div>
-          <div class="price-cash-line">ou R$ 3.000 à vista</div>
-        </div>
-      </div>
-
-      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Start!" target="_blank" class="plan-cta">Começar agora</a>
+<!-- SCHEDULE -->
+<section class="schedule" id="agendar">
+  <div class="schedule-window">
+    <div class="schedule-topbar">
+      <span class="schedule-dot"></span>
+      <span class="schedule-dot"></span>
+      <span class="schedule-dot"></span>
     </div>
 
-    <!-- PERFORMANCE -->
-    <div class="plan-card featured">
-      <div class="plan-badge">Mais escolhido</div>
-      <div class="plan-name">Performance</div>
-      <div class="plan-tagline">Protocolo completo para resultados acelerados</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia | acesso por 3 meses
-          </span>
-          <span class="feat-original">R$ 899,70</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Nutricionista | 2 consultas
-          </span>
-          <span class="feat-original">R$ 1.000,00</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Enfermagem | 2 consultas
-          </span>
-          <span class="feat-original">R$ 1.000,00</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consultoria de treinamento | 2x
-          </span>
-          <span class="feat-original">R$ 700,00</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta médica | 1x
-          </span>
-          <span class="feat-original">R$ 1.500,00</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Exames laboratoriais inclusos
-          </span>
-          <span class="feat-original">R$ 800,00</span>
-        </li>
-        <li class="highlight-feat">
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais | 12x
-          </span>
-          <span class="feat-original">R$ 1.800,00</span>
-        </li>
-      </ul>
-
-      <div class="plan-value-summary">
-        <div class="plan-value-would-pay">
-          <span class="value-label">Você pagaria</span>
-          <span class="value-total">R$ 7.699,70</span>
+    <div class="schedule-content">
+      <div class="schedule-copy">
+        <h2>
+          Tudo começa com uma<br>
+          <span class="gold">avaliação real</span>
+        </h2>
+        <div class="schedule-bio-video" style="margin-top:20px;">
+          <vturb-smartplayer id="vid-6aaca6c574d3f01a5682cc52" style="display: block; margin: 0 auto; width: 100%;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/6d365865-b4f9-435b-8aac-053d06d004e3/players/6aaca6c574d3f01a5682cc52/v4/player.js", s.async=!0,document.head.appendChild(s);</script>
         </div>
-        <div class="plan-value-divider"></div>
-        <div class="plan-price-main">
-          <div class="plan-price-row">
-            <span class="price-times">3×</span>
-            <span class="price-big">R$ 2.000</span>
-          </div>
-          <div class="price-cash-line">ou R$ 6.000 à vista</div>
-        </div>
+        <p>
+          Em vez de escolher um plano no escuro, você passa por uma avaliação inicial para entender seu corpo, seus exames, sua rotina e o melhor caminho dentro do método TechnoX.
+        </p>
       </div>
 
-      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Performance!" target="_blank" class="plan-cta">Quero este plano</a>
+      <div class="schedule-card">
+        <div class="schedule-card-title">Próximo passo</div>
+        <strong>Agende sua avaliação pelo WhatsApp.</strong>
+        <div class="schedule-list" style="margin-top: 16px; margin-bottom: 24px;">
+          <span style="color: #F7F5F1;">Bioimpedância e análise corporal</span>
+          <span style="color: #F7F5F1;">Direcionamento do protocolo ideal</span>
+          <span style="color: #F7F5F1;">Atendimento direto com a equipe</span>
+        </div>
+        <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20TechnoX" target="_blank" class="schedule-cta">Agendar avaliação</a>
+        <span class="schedule-note" style="color: var(--gold); font-weight: 600; letter-spacing: 0.08em;">⚠️ Apenas 02 vagas nesta semana</span>
+      </div>
     </div>
-
-    <!-- ELITE -->
-    <div class="plan-card elite">
-      <div class="plan-badge" style="background: var(--gold); border: none; color: #1A1410;">Máxima transformação</div>
-      <div class="plan-name">Elite</div>
-      <div class="plan-tagline">Imersão total no método TechnoX</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Academia | acesso por 3 meses
-          </span>
-          <span class="feat-original">R$ 899,70</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Nutricionista | 3 consultas
-          </span>
-          <span class="feat-original">R$ 1.500,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Enfermagem | 3 consultas
-          </span>
-          <span class="feat-original">R$ 1.500,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consultoria de Treinamento | 3x
-          </span>
-          <span class="feat-original">R$ 1.050,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Consulta médica | 2x
-          </span>
-          <span class="feat-original">R$ 3.000,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Exames laboratoriais | 2x
-          </span>
-          <span class="feat-original">R$ 1.600,00</span>
-        </li>
-        <li>
-          <span class="feat-label">
-            <span class="feat-icon"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-            Bioimpedâncias semanais | 12x
-          </span>
-          <span class="feat-original">R$ 1.800,00</span>
-        </li>
-      </ul>
-
-      <div class="plan-elite-extras">
-        <div class="extra-label">Exclusivo Elite</div>
-        <div class="extra-item">Protocolo Tirzepatida | + de R$ 6.000,00</div>
-        <div class="extra-item">Voucher Soroterapia | R$ 9.000,00</div>
-        <div class="extra-item">Manipulados inclusos | + de R$ 6.000,00</div>
-      </div>
-
-      <div class="plan-value-summary">
-        <div class="plan-price-main">
-          <div class="plan-price-row">
-            <span class="price-times">3×</span>
-            <span class="price-big">R$ 10.000</span>
-          </div>
-          <div class="price-cash-line">ou R$ 30.000 à vista</div>
-        </div>
-      </div>
-      <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20come%C3%A7ar%20o%20TechnoX%20no%20Plano%20Elite!" target="_blank" class="plan-cta">Quero o Elite</a>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider-h"></div>
-
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div style="display:flex;justify-content:center;margin-bottom:32px;">
-    <img src="2.png" alt="TechnoX" style="height: 60px; width: auto; filter: invert(1); mix-blend-mode: screen;">
-  </div>
-  <span class="overline" style="margin-bottom: 40px; display: block;">PRONTO(A) PARA COMEÇAR?</span>
-  <h2>
-    Seu corpo<br>
-    merece um<br>
-    <span class="gold">método real</span>
-  </h2>
-  <p>
-    Agende sua avaliação inicial com a equipe TechnoX. Em uma única consulta, você já terá mais clareza sobre o seu corpo do que em anos de tentativas isoladas.
-  </p>
-
-  <div class="cta-actions">
-    <a href="https://wa.me/5595981008916?text=Ol%C3%A1%2C%20vim%20do%20site!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20TechnoX" target="_blank" class="btn-cta-main">Agendar avaliação gratuita</a>
-    <span class="cta-note">Vagas limitadas · Protocolo 100% personalizado · Resultado documentado</span>
   </div>
 </section>
 
 
+<script><script>
+  const muteAllMedia = () => {
+    document.querySelectorAll('video, audio').forEach((media) => {
+      media.muted = true;
+      media.defaultMuted = true;
+      media.volume = 0;
+      media.setAttribute('muted', '');
+      media.setAttribute('playsinline', '');
+    });
 
-<script>
+    document.querySelectorAll('vturb-smartplayer').forEach((player) => {
+      player.setAttribute('muted', 'true');
+      player.setAttribute('defaultMuted', 'true');
+      player.setAttribute('volume', '0');
+    });
+  };
+
+  muteAllMedia();
+  window.addEventListener('load', muteAllMedia);
+  setInterval(muteAllMedia, 1000);
+
+  new MutationObserver(muteAllMedia).observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
   // Smooth reveal on scroll
   const observerOptions = {
     threshold: 0.1,
@@ -2512,7 +2892,7 @@
 
   // Observe elements
   const revealEls = document.querySelectorAll(
-    '.pilar, .pain-item, .step-item, .diff-item, .metric-item, .testimonial-item, .intro-right, .problema-header, .method-header, .steps-header, .results-left, .results-right, .differentials-left, .differentials-right'
+    '.pilar, .pain-item, .step-item, .diff-item, .metric-item, .testimonial-item, .schedule-window, .intro-right, .problema-header, .method-header, .steps-header, .results-left, .results-right, .differentials-left, .differentials-right'
   );
 
   revealEls.forEach((el, i) => {
@@ -2526,3 +2906,4 @@
 </script>
 </body>
 </html>
+
